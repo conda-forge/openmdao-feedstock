@@ -50,7 +50,7 @@ test:
     - testflo --config .testflo --numprocs 1 openmdao -v --pre_announce
 
 about:
-  home: http://openmdao.org
+  home: https://openmdao.org
   license: Apache-2.0
   license_family: Apache
   license_file: LICENSE.txt
@@ -61,7 +61,7 @@ about:
     It enables you to decompose your models, making them easier to build and
     maintain, while still solving them in a tightly coupled manner with
     efficient parallel numerical methods.
-  doc_url: http://openmdao.org/twodocs/
+  doc_url: https://openmdao.org/twodocs
   dev_url: https://github.com/OpenMDAO/OpenMDAO
 
 extra:
