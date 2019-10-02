@@ -1,7 +1,7 @@
 About openmdao
 ==============
 
-Home: http://openmdao.org
+Home: https://openmdao.org
 
 Package license: Apache-2.0
 
