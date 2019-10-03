@@ -1,5 +1,5 @@
 {% set name = "openmdao" %}
-{% set version = "2.8.0" %}
+{% set version = "2.9.0" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: c0c32cfcf567b244a1537d4081882b38f8ede044bd1405e0542f0a846a6c518c
+  sha256: 5ecaf65e1052175150227bd7f0ef8984824cceb08f7b997f4709a766d9a04ea5
 
 build:
   noarch: python
@@ -15,7 +15,7 @@ build:
   script: "{{ PYTHON }} -m pip install . -vv"
   entry_points:
     - wingproj  = openmdao.devtools.wingproj:run_wing
-    - webview   = openmdao.devtools.webview:webview_argv
+    - webview   = openmdao.utils.webview:webview_argv
     - run_test  = openmdao.devtools.run_test:run_test
     - openmdao  = openmdao.utils.om:openmdao_cmd
 
@@ -50,7 +50,7 @@ test:
     - testflo --config .testflo --numprocs 1 openmdao -v --pre_announce
 
 about:
-  home: http://openmdao.org
+  home: https://openmdao.org
   license: Apache-2.0
   license_family: Apache
   license_file: LICENSE.txt
@@ -61,7 +61,7 @@ about:
     It enables you to decompose your models, making them easier to build and
     maintain, while still solving them in a tightly coupled manner with
     efficient parallel numerical methods.
-  doc_url: http://openmdao.org/twodocs/
+  doc_url: https://openmdao.org/twodocs
   dev_url: https://github.com/OpenMDAO/OpenMDAO
 
 extra:
