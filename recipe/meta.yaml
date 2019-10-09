@@ -1,5 +1,6 @@
 {% set name = "openmdao" %}
-{% set version = "2.9.0" %}
+{% set version = "2.9.1" %}
+
 
 package:
   name: {{ name }}
@@ -7,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 5ecaf65e1052175150227bd7f0ef8984824cceb08f7b997f4709a766d9a04ea5
+  sha256: c20de93c9c3841a6306f15dd43117fcd54ae0ee7ae545b657d6fd50dac70b605
 
 build:
   noarch: python
@@ -62,7 +63,7 @@ about:
     maintain, while still solving them in a tightly coupled manner with
     efficient parallel numerical methods.
   doc_url: https://openmdao.org/twodocs
-  dev_url: https://github.com/OpenMDAO/OpenMDAO
+  dev_url: https://github.com/OpenMDAO/OpenMDAOignore
 
 extra:
   recipe-maintainers:
