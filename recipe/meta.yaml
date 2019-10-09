@@ -1,6 +1,7 @@
 {% set name = "openmdao" %}
 {% set version = "2.9.1" %}
 
+
 package:
   name: {{ name }}
   version: {{ version }}
@@ -62,7 +63,7 @@ about:
     maintain, while still solving them in a tightly coupled manner with
     efficient parallel numerical methods.
   doc_url: https://openmdao.org/twodocs
-  dev_url: https://github.com/OpenMDAO/OpenMDAO
+  dev_url: https://github.com/OpenMDAO/OpenMDAOignore
 
 extra:
   recipe-maintainers:
