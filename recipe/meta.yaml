@@ -1,5 +1,5 @@
 {% set name = "openmdao" %}
-{% set version = "2.9.1" %}
+{% set version = "2.10.0" %}
 
 package:
   name: {{ name }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: c20de93c9c3841a6306f15dd43117fcd54ae0ee7ae545b657d6fd50dac70b605
+  sha256: 5d239ab55f909b33a4db5c952dfd3761da3ab40ecfa3936a32b071b03a984f9b
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - wingproj  = openmdao.devtools.wingproj:run_wing
     - webview   = openmdao.utils.webview:webview_argv
