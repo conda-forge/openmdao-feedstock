@@ -1,5 +1,6 @@
 import os
 import subprocess
+import sys
 from os.path import join, dirname
 
 import openmdao
