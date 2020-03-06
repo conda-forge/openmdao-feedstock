@@ -14,23 +14,23 @@ build:
   number: 0
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
-    - wingproj  = openmdao.devtools.wingproj:run_wing
-    - webview   = openmdao.utils.webview:webview_argv
-    - run_om_test  = openmdao.devtools.run_test:run_test
-    - openmdao  = openmdao.utils.om:openmdao_cmd
+    - wingproj = openmdao.devtools.wingproj:run_wing
+    - webview = openmdao.utils.webview:webview_argv
+    - run_om_test = openmdao.devtools.run_test:run_test
+    - openmdao = openmdao.utils.om:openmdao_cmd
 
 requirements:
   host:
-    - python
+    - python >=3.6
     - pip
   run:
     - networkx >=2.0
     - numpy
     - pydoe2
     - pyparsing
+    - python >=3.6
     - requests
     - scipy
-    - six
     - urllib3 <1.25.0a0
 
 test:
@@ -48,7 +48,7 @@ test:
   imports:
     - openmdao
   commands:
-    - pip check
+    - python -m pip check
     - openmdao --help
     - webview --help
     - wingproj --help
@@ -58,15 +58,16 @@ about:
   license: Apache-2.0
   license_family: Apache
   license_file: LICENSE.txt
-  summary: |
-    OpenMDAO is an open-source high-performance computing platform
-    for systems analysis and multidisciplinary optimization, written in Python.
+  summary: OpenMDAO framework infrastructure
   description: |
-    It enables you to decompose your models, making them easier to build and
-    maintain, while still solving them in a tightly coupled manner with
-    efficient parallel numerical methods.
+    OpenMDAO is an open-source high-performance computing platform
+    for systems analysis and multidisciplinary optimization, written in Python. It
+    enables you to decompose your models, making them easier to build and maintain,
+    while still solving them in a tightly coupled manner with efficient parallel
+    numerical methods.
   doc_url: https://openmdao.org/twodocs
-  dev_url: https://github.com/OpenMDAO/OpenMDAOignore
+  dev_url: https://github.com/OpenMDAO/OpenMDAO
+  doc_source_url: https://github.com/OpenMDAO/OpenMDAO/tree/master/openmdao/docs
 
 extra:
   recipe-maintainers:
