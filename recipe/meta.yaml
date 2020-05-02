@@ -11,7 +11,7 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - wingproj = openmdao.devtools.wingproj:run_wing
@@ -42,7 +42,7 @@ test:
     # not fully testing viz YET, but does fulfill undocumented tornado dep
     - bokeh >=1.3.4
     - colorama
-    - matplotlib
+    - matplotlib-base
     # for pip check
     - pip
   imports:
