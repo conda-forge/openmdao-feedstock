@@ -7,13 +7,13 @@ Package license: Apache-2.0
 
 Feedstock license: BSD 3-Clause
 
-Summary: OpenMDAO is an open-source high-performance computing platform
-for systems analysis and multidisciplinary optimization, written in Python.
+Summary: OpenMDAO framework infrastructure
 
-
-It enables you to decompose your models, making them easier to build and
-maintain, while still solving them in a tightly coupled manner with
-efficient parallel numerical methods.
+OpenMDAO is an open-source high-performance computing platform
+for systems analysis and multidisciplinary optimization, written in Python. It
+enables you to decompose your models, making them easier to build and maintain,
+while still solving them in a tightly coupled manner with efficient parallel
+numerical methods.
 
 
 Current build status
