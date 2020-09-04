@@ -1,5 +1,5 @@
 {% set name = "openmdao" %}
-{% set version = "3.2.1" %}
+{% set version = "3.3.0" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: facc32309d21baf94833942ca7fc882de9f8982a62956b3d76bb9f1ae98f52da
+  sha256: 48f9c1dee055df1d4e7778297e91a69a5842af8f52d6ad0ef4e8693d19c1ac36
 
 build:
   noarch: python
