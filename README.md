@@ -5,9 +5,13 @@ Home: https://openmdao.org
 
 Package license: Apache-2.0
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/openmdao-feedstock/blob/master/LICENSE.txt)
 
 Summary: OpenMDAO framework infrastructure
+
+Development: https://github.com/OpenMDAO/OpenMDAO
+
+Documentation: https://openmdao.org/twodocs
 
 OpenMDAO is an open-source high-performance computing platform
 for systems analysis and multidisciplinary optimization, written in Python. It
