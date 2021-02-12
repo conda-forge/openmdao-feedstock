@@ -1,5 +1,5 @@
 {% set name = "openmdao" %}
-{% set version = "3.6.0" %}
+{% set version = "3.7.0" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 74c7b217ef6a31a7fd53f0110babadb2c415393b2147050a7e7b22225c99d105
+  sha256: c07eb84ffc78c60cb5868eaebbd2010019d43f95a7a6da5722e060f79d457f56
 
 build:
   noarch: python
@@ -39,10 +39,14 @@ test:
     - pycodestyle >=2.4.0
     - pydocstyle ==2.0.0
     - testflo >=1.3.6
+    - aiounittest
+    - pyppeteer
     # not fully testing viz YET, but does fulfill undocumented tornado dep
     - bokeh >=1.3.4
     - colorama
     - matplotlib-base
+    - notebook
+    - tabulate
     # for pip check
     - pip
   imports:
