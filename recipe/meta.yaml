@@ -49,6 +49,9 @@ test:
     - tabulate
     # for pip check
     - pip
+    # from sphinx
+    - jinja2 >=2.3,<3.0
+    - markupsafe <2.0
   imports:
     - openmdao
   commands:
