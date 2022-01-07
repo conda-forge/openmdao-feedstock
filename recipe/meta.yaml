@@ -22,14 +22,14 @@ build:
 
 requirements:
   host:
-    - python >=3.6
+    - python >=3.7
     - pip
   run:
     - networkx >=2.0
     - numpy
     - pydoe2
     - pyparsing
-    - python >=3.6
+    - python >=3.7
     - requests
     - scipy
 
