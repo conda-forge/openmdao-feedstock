@@ -18,7 +18,8 @@ with open(".testflo", "w") as fp:
 
 test_files_to_delete = [
     # can't test these, yet, because of playwright
-    ["visualization", "n2_viewer", "tests", "test_gui.py", "test_jupyter_gui_test.py"],
+    ["visualization", "n2_viewer", "tests", "test_gui.py"],
+    ["docs", "openmdao_book", "tests", "test_jupyter_gui_test.py"],
     # some new issue as of 3.4.1
     ["core", "tests", "test_feature_cache_linear_solution.py"]
 ]
