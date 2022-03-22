@@ -45,7 +45,7 @@ test:
     # not fully testing viz YET, but does fulfill undocumented tornado dep
     - bokeh >=1.3.4
     - colorama
-    # - matplotlib-base
+    - matplotlib-base
     - notebook
     - tabulate
     # for pip check
