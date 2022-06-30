@@ -27,6 +27,7 @@ requirements:
   run:
     - networkx >=2.0
     - numpy
+    - packaging
     - pydoe2
     - pyparsing
     - python >=3.7
