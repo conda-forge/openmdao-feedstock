@@ -1,5 +1,5 @@
 {% set name = "openmdao" %}
-{% set version = "3.19.0" %}
+{% set version = "3.20.0" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 3bedc9c1dec71276b9fbaa4caa6c184ebf75c0c63c088b9e393ad6cac38a13a4
+  sha256: a53552fcbec8b207b651e4ae08c2ec760fbf41f01de59f96b8f687617dc97977
 
 build:
   noarch: python
@@ -22,7 +22,7 @@ build:
 
 requirements:
   host:
-    - python >=3.7
+    - python >=3.8
     - pip
   run:
     - networkx >=2.0
@@ -30,7 +30,7 @@ requirements:
     - packaging
     - pydoe2
     - pyparsing
-    - python >=3.7
+    - python >=3.8
     - requests
     - scipy
 
