@@ -22,7 +22,7 @@ build:
 
 requirements:
   host:
-    - python >=3.7
+    - python >=3.8
     - pip
   run:
     - networkx >=2.0
@@ -30,7 +30,7 @@ requirements:
     - packaging
     - pydoe2
     - pyparsing
-    - python >=3.7
+    - python >=3.8
     - requests
     - scipy
 
