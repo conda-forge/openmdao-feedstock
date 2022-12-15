@@ -1,13 +1,12 @@
-{% set name = "openmdao" %}
-{% set version = "3.21.0" %}
+{% set version = "3.22.0" %}
 
 package:
-  name: {{ name }}
+  name: openmdao
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: b88ae96f60e6e37c37aabe2b58508fa70c187e61ee413c924087269fc8af0aab
+  url: https://pypi.io/packages/source/o/openmdao/openmdao-{{ version }}.tar.gz
+  sha256: 3d87b3af1c77905fe08da25665273b7c1b279a3ab4358fefcf562d3f72d176c1
 
 build:
   noarch: python
@@ -22,15 +21,13 @@ build:
 
 requirements:
   host:
-    - python >=3.8
+    - python >=3.7
     - pip
   run:
     - networkx >=2.0
     - numpy
     - packaging
-    - pydoe2
-    - pyparsing
-    - python >=3.8
+    - python >=3.7
     - requests
     - scipy
 
@@ -39,8 +36,6 @@ test:
     - parameterized
     - numpydoc >=0.9.1
     - pycodestyle >=2.4.0
-    # some solving issues? 
-    # - pydocstyle ==2.0.0
     - testflo >=1.3.6
     - aiounittest
     # not fully testing viz YET, but does fulfill undocumented tornado dep
@@ -49,6 +44,8 @@ test:
     - matplotlib-base
     - notebook
     - tabulate
+    - pydoe2
+    - pyparsing
     # for pip check
     - pip
     # from sphinx
