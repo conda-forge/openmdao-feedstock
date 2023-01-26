@@ -1,4 +1,4 @@
-{% set version = "3.23.0" %}
+{% set version = "3.24.0" %}
 
 package:
   name: openmdao
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/o/openmdao/openmdao-{{ version }}.tar.gz
-  sha256: e3361b4f73eac6eec7d347118b18dea00f86b2eeca3d9e1e11ca69382eda05c6
+  sha256: 8cca863bd01a6e28dc66d7bb6756e6800e4bad745b9a36576a629340d4d16e7a
 
 build:
   noarch: python
