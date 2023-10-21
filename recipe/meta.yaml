@@ -43,7 +43,7 @@ test:
     - colorama
     - matplotlib-base
     - notebook
-    - ipyml
+    - ipympl
     - tabulate
     - num2words
     - pydoe2
