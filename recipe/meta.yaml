@@ -51,6 +51,8 @@ test:
     # from sphinx
     - jinja2 >=2.3,<3.0
     - markupsafe <2.0
+    # for networkx
+    - python >=3.9
   imports:
     - openmdao
   commands:
