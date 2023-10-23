@@ -13,14 +13,14 @@ build:
   noarch: python
   number: 0
 
-test:
-  commands: echo "tests in outputs"
-
 requirements:
   host:
     - {{ min_python }}
   run:
     - {{ min_python }}
+
+test:
+  commands: echo "tests in outputs"
 
 outputs:
   - name: openmdao
