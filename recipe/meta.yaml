@@ -1,4 +1,5 @@
-{% set version = "3.28.0" %}
+{% set version = "3.29.0" %}
+{% set min_python = "python >=3.7" %}
 
 package:
   name: openmdao
@@ -6,58 +7,178 @@ package:
 
 source:
   url: https://pypi.io/packages/source/o/openmdao/openmdao-{{ version }}.tar.gz
-  sha256: 1acdedf06676acedf254bbbcab19f09c5cc807677d71f333e8421c992f06ab34
+  sha256: ad53004c228e9268cb3f8cf9a61b8a6b3419bab935ab3e0732b948f4bd3fe447
 
 build:
   noarch: python
   number: 0
-  script: {{ PYTHON }} -m pip install . -vv
-  entry_points:
-    - wingproj = openmdao.devtools.wingproj:run_wing
-    - webview = openmdao.utils.webview:webview_argv
-    - run_om_test = openmdao.devtools.run_test:run_test
-    - openmdao = openmdao.utils.om:openmdao_cmd
-    - reset_notebook = openmdao.devtools.docutils:reset_notebook_cmd
 
 requirements:
   host:
-    - python >=3.7
-    - pip
+    - {{ min_python }}
   run:
-    - networkx >=2.0
-    - numpy
-    - packaging
-    - python >=3.7
-    - requests
-    - scipy
+    - {{ min_python }}
 
 test:
-  requires:
-    - parameterized
-    - numpydoc >=0.9.1
-    - pycodestyle >=2.4.0
-    - testflo >=1.3.6
-    - aiounittest
-    # not fully testing viz YET, but does fulfill undocumented tornado dep
-    - bokeh >=1.3.4
-    - colorama
-    - matplotlib-base
-    - notebook
-    - tabulate
-    - pydoe2
-    - pyparsing
-    # for pip check
-    - pip
-    # from sphinx
-    - jinja2 >=2.3,<3.0
-    - markupsafe <2.0
-  imports:
-    - openmdao
-  commands:
-    - python -m pip check
-    - openmdao --help
-    - webview --help
-    - wingproj --help
+  commands: echo "tests in outputs"
+
+outputs:
+  - name: openmdao
+    build:
+      noarch: python
+      script: {{ PYTHON }} -m pip install . -vv --no-deps --ignore-installed
+      entry_points:
+        - openmdao = openmdao.utils.om:openmdao_cmd
+        - reset_notebook = openmdao.devtools.docutils:reset_notebook_cmd
+        - run_om_test = openmdao.devtools.run_test:run_test
+        - webview = openmdao.utils.webview:webview_argv
+        - wingproj = openmdao.devtools.wingproj:run_wing
+    requirements:
+      host:
+        - {{ min_python }}
+        - pip
+      run:
+        - {{ min_python }}
+        - networkx >=2.0
+        - numpy
+        - packaging
+        - requests
+        - scipy
+    test:
+      requires:
+        - pip
+      imports:
+        - openmdao
+      commands:
+        - pip check
+        - openmdao --help
+        - webview --help
+        - wingproj --help
+
+  - name: openmdao-with-doe
+    build:
+      noarch: python
+    requirements:
+      host:
+        - {{ min_python }}
+      run:
+        - {{ min_python }}
+        - {{ pin_subpackage("openmdao", exact=True) }}
+    test:
+      requires:
+        - pip
+      imports:
+        - openmdao
+      commands:
+        - pip check
+        - openmdao --help
+        - webview --help
+        - wingproj --help
+
+  - name: openmdao-with-jax
+    build:
+      noarch: python
+    requirements:
+      host:
+        - {{ min_python }}
+      run:
+        - {{ min_python }}
+        - {{ pin_subpackage("openmdao", exact=True) }}
+        - jax >=0.4.0
+        - jaxlib >=0.4.0
+    test:
+      requires:
+        - pip
+      imports:
+        - openmdao
+      commands:
+        - pip check
+        - openmdao --help
+        - webview --help
+        - wingproj --help
+
+  - name: openmdao-with-notebooks
+    build:
+      noarch: python
+    requirements:
+      host:
+        - {{ min_python }}
+      run:
+        - {{ min_python }}
+        - {{ pin_subpackage("openmdao", exact=True) }}
+        - ipympl
+        - notebook
+    test:
+      requires:
+        - pip
+      imports:
+        - openmdao
+      commands:
+        - pip check
+        - openmdao --help
+        - webview --help
+        - wingproj --help
+
+  - name: openmdao-with-visualization
+    build:
+      noarch: python
+    requirements:
+      host:
+        - {{ min_python }}
+      run:
+        - {{ min_python }}
+        - {{ pin_subpackage("openmdao", exact=True) }}
+        - bokeh >=2.4.0
+        - colorama
+        - matplotlib-base
+    test:
+      requires:
+        - pip
+      imports:
+        - openmdao
+      commands:
+        - pip check
+        - openmdao --help
+        - webview --help
+        - wingproj --help
+
+  - name: openmdao-with-all
+    build:
+      noarch: python
+    requirements:
+      host:
+        - {{ min_python }}
+      run:
+        - {{ min_python }}
+        - {{ pin_subpackage("openmdao", exact=True) }}
+        - {{ pin_subpackage("openmdao-with-doe", exact=True) }}
+        - {{ pin_subpackage("openmdao-with-jax", exact=True) }}
+        - {{ pin_subpackage("openmdao-with-notebooks", exact=True) }}
+        - {{ pin_subpackage("openmdao-with-visualization", exact=True) }}
+    test:
+      files:
+        - run_testflo.py
+      requires:
+        # for pip check
+        - pip
+        # networkx 3.2 drops py3.8, but `testflo` -> `coverage 5` won't solve there
+        - networkx <3.2
+        # [test] extra
+        - aiounittest
+        - num2words
+        - numpydoc >=1.1
+        - parameterized
+        - pycodestyle >=2.4.0
+        - pydocstyle >=2.0.0
+        - testflo >=1.3.6
+        - websockets >8
+        # not available on conda-forge
+        # - playwright>=1.20
+      imports:
+        - openmdao
+      commands:
+        - pip check
+        - python run_testflo.py
 
 about:
   home: https://openmdao.org
@@ -73,7 +194,7 @@ about:
     numerical methods.
   doc_url: https://openmdao.org/twodocs
   dev_url: https://github.com/OpenMDAO/OpenMDAO
-  doc_source_url: https://github.com/OpenMDAO/OpenMDAO/tree/master/openmdao/docs
+  doc_source_url: https://github.com/OpenMDAO/OpenMDAO/tree/{{ version }}/openmdao/docs
 
 extra:
   recipe-maintainers:
