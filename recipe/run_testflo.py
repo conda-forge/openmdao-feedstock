@@ -10,7 +10,6 @@ TESTFLO = """[testflo]
 numprocs = 2
 skip_dirs =
   code_review
-
 """
 
 with open(".testflo", "w") as fp:
