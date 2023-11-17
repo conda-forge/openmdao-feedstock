@@ -11,7 +11,7 @@ Summary: OpenMDAO framework infrastructure
 
 Development: https://github.com/OpenMDAO/OpenMDAO
 
-Documentation: https://openmdao.org/twodocs
+Documentation: https://openmdao.org/docs
 
 OpenMDAO is an open-source high-performance computing platform
 for systems analysis and multidisciplinary optimization, written in Python. It
@@ -160,4 +160,3 @@ Feedstock Maintainers
 =====================
 
 * [@bollwyvl](https://github.com/bollwyvl/)
-
