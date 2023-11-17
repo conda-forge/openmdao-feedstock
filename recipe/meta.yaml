@@ -11,7 +11,7 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
 
 requirements:
   host:
@@ -192,7 +192,7 @@ about:
     enables you to decompose your models, making them easier to build and maintain,
     while still solving them in a tightly coupled manner with efficient parallel
     numerical methods.
-  doc_url: https://openmdao.org/twodocs
+  doc_url: https://openmdao.org/docs
   dev_url: https://github.com/OpenMDAO/OpenMDAO
   doc_source_url: https://github.com/OpenMDAO/OpenMDAO/tree/{{ version }}/openmdao/docs
 
