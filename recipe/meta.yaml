@@ -1,4 +1,4 @@
-{% set version = "3.29.0" %}
+{% set version = "3.30.0" %}
 {% set min_python = "python >=3.7" %}
 
 package:
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/o/openmdao/openmdao-{{ version }}.tar.gz
-  sha256: ad53004c228e9268cb3f8cf9a61b8a6b3419bab935ab3e0732b948f4bd3fe447
+  sha256: c770d2251ea4589adb7be0fe121258c46a0191bd6bf1f88b8e9ec426e1cfb77e
 
 build:
   noarch: python
@@ -64,6 +64,7 @@ outputs:
       run:
         - {{ min_python }}
         - {{ pin_subpackage("openmdao", exact=True) }}
+        - pydoe3
     test:
       requires:
         - pip
@@ -192,7 +193,7 @@ about:
     enables you to decompose your models, making them easier to build and maintain,
     while still solving them in a tightly coupled manner with efficient parallel
     numerical methods.
-  doc_url: https://openmdao.org/twodocs
+  doc_url: https://openmdao.org/docs
   dev_url: https://github.com/OpenMDAO/OpenMDAO
   doc_source_url: https://github.com/OpenMDAO/OpenMDAO/tree/{{ version }}/openmdao/docs
 
