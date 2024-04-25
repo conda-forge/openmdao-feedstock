@@ -175,6 +175,8 @@ outputs:
         - websockets >8
         # not available on conda-forge
         # - playwright>=1.20
+        # TODO: fix after https://github.com/OpenMDAO/OpenMDAO/issues/3156
+        - scipy <1.13.0
       imports:
         - openmdao
       commands:
