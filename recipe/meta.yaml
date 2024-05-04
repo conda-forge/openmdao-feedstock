@@ -1,5 +1,5 @@
-{% set version = "3.31.1" %}
-{% set min_python = "python >=3.7" %}
+{% set version = "3.32.0" %}
+{% set min_python = "python >=3.8" %}
 
 package:
   name: openmdao
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/o/openmdao/openmdao-{{ version }}.tar.gz
-  sha256: 83b8f6642ed2f54d02a61fce5ce4271038e845f6d0c43d7fee474ccb504e2ec9
+  sha256: 324f8d900153cea14114a8c2a83aa3d801f7fd5e172c156a85a8208f45c3be49
 
 build:
   noarch: python
@@ -19,14 +19,11 @@ requirements:
   run:
     - {{ min_python }}
 
-test:
-  commands: echo "tests in outputs"
-
 outputs:
   - name: openmdao
     build:
       noarch: python
-      script: {{ PYTHON }} -m pip install . -vv --no-deps --ignore-installed
+      script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
       entry_points:
         - openmdao = openmdao.utils.om:openmdao_cmd
         - reset_notebook = openmdao.devtools.docutils:reset_notebook_cmd
@@ -36,11 +33,12 @@ outputs:
     requirements:
       host:
         - {{ min_python }}
+        - hatchling
         - pip
       run:
         - {{ min_python }}
         - networkx >=2.0
-        - numpy
+        - numpy <2
         - packaging
         - requests
         - scipy
@@ -107,6 +105,7 @@ outputs:
       run:
         - {{ min_python }}
         - {{ pin_subpackage("openmdao", exact=True) }}
+        - idna >=3.7
         - ipympl
         - notebook
     test:
@@ -175,8 +174,6 @@ outputs:
         - websockets >8
         # not available on conda-forge
         # - playwright>=1.20
-        # TODO: fix after https://github.com/OpenMDAO/OpenMDAO/issues/3156
-        - scipy <1.13.0
       imports:
         - openmdao
       commands:
