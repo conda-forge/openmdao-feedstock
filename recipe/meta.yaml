@@ -1,5 +1,6 @@
 {% set min_python = "python >=3.8" %}
-{% set version = "3.33.0" %}
+{% set min_python = "python >=3.8" %}
+{% set version = "3.34.0" %}
 {% set min_python = "python >=3.8" %}
 
 package:
@@ -8,7 +9,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/o/openmdao/openmdao-{{ version }}.tar.gz
-  sha256: bc110389517e68d57637ded1a3e7b2f7949b43526e3119a9d7cefed14f404f23
+  sha256: 11a8265a91a0ccec0b8d8978784a3ca6283c7ea369e7c9a8336ba23f1aabb6f4
 
 build:
   noarch: python
