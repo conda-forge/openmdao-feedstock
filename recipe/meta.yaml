@@ -1,7 +1,5 @@
 {% set min_python = "python >=3.8" %}
-{% set min_python = "python >=3.8" %}
 {% set version = "3.34.0" %}
-{% set min_python = "python >=3.8" %}
 
 package:
   name: openmdao
