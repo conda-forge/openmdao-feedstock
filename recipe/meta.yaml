@@ -1,5 +1,7 @@
-{% set version = "3.34.2" %}
-{% set min_python = "python >=3.8" %}
+{% set version = "3.35.0" %}
+
+# handle undefined PYTHON in `noarch: generic` outputs
+{% if PYTHON is not defined %}{% set PYTHON = "$PYTHON" %}{% endif %}
 
 package:
   name: openmdao
@@ -7,61 +9,52 @@ package:
 
 source:
   url: https://pypi.io/packages/source/o/openmdao/openmdao-{{ version }}.tar.gz
-  sha256: 3f772f74c99fc2305a872a4761589d4130396ea98a2210d9d1367fcf7fca36ab
+  sha256: cb61513f387bb14ee6ba04f641a3dc614bc4df734251c6f738712599a159b6b0
 
 build:
   noarch: python
   number: 0
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  entry_points:
+    - openmdao = openmdao.utils.om:openmdao_cmd
+    - reset_notebook = openmdao.devtools.docutils:reset_notebook_cmd
+    - run_om_test = openmdao.devtools.run_test:run_test
+    - webview = openmdao.utils.webview:webview_argv
+    - wingproj = openmdao.devtools.wingproj:run_wing
 
 requirements:
   host:
-    - {{ min_python }}
+    - hatchling
+    - pip
+    - python >=3.9
   run:
-    - {{ min_python }}
+    - networkx >=2.0
+    - numpy
+    - packaging
+    - python >=3.9
+    - requests
+    - scipy
+
+test:
+  requires:
+    - pip
+  imports:
+    - openmdao
+  commands:
+    - pip check
+    - openmdao --help
+    - webview --help
+    - wingproj --help
 
 outputs:
   - name: openmdao
-    build:
-      noarch: python
-      script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-      entry_points:
-        - openmdao = openmdao.utils.om:openmdao_cmd
-        - reset_notebook = openmdao.devtools.docutils:reset_notebook_cmd
-        - run_om_test = openmdao.devtools.run_test:run_test
-        - webview = openmdao.utils.webview:webview_argv
-        - wingproj = openmdao.devtools.wingproj:run_wing
-    requirements:
-      host:
-        - {{ min_python }}
-        - hatchling
-        - pip
-      run:
-        - {{ min_python }}
-        - networkx >=2.0
-        - numpy <2
-        - packaging
-        - requests
-        - scipy
-    test:
-      requires:
-        - pip
-      imports:
-        - openmdao
-      commands:
-        - pip check
-        - openmdao --help
-        - webview --help
-        - wingproj --help
 
   - name: openmdao-with-doe
     build:
-      noarch: python
+      noarch: generic
     requirements:
-      host:
-        - {{ min_python }}
       run:
-        - {{ min_python }}
-        - {{ pin_subpackage("openmdao", exact=True) }}
+        - {{ pin_subpackage("openmdao", max_pin="x.x.x") }}
         - pydoe3
     test:
       requires:
@@ -76,13 +69,10 @@ outputs:
 
   - name: openmdao-with-jax
     build:
-      noarch: python
+      noarch: generic
     requirements:
-      host:
-        - {{ min_python }}
       run:
-        - {{ min_python }}
-        - {{ pin_subpackage("openmdao", exact=True) }}
+        - {{ pin_subpackage("openmdao", max_pin="x.x.x") }}
         - jax >=0.4.0
         - jaxlib >=0.4.0
     test:
@@ -98,13 +88,10 @@ outputs:
 
   - name: openmdao-with-notebooks
     build:
-      noarch: python
+      noarch: generic
     requirements:
-      host:
-        - {{ min_python }}
       run:
-        - {{ min_python }}
-        - {{ pin_subpackage("openmdao", exact=True) }}
+        - {{ pin_subpackage("openmdao", max_pin="x.x.x") }}
         - idna >=3.7
         - ipympl
         - notebook
@@ -121,13 +108,10 @@ outputs:
 
   - name: openmdao-with-visualization
     build:
-      noarch: python
+      noarch: generic
     requirements:
-      host:
-        - {{ min_python }}
       run:
-        - {{ min_python }}
-        - {{ pin_subpackage("openmdao", exact=True) }}
+        - {{ pin_subpackage("openmdao", max_pin="x.x.x") }}
         - bokeh >=2.4.0
         - colorama
         - matplotlib-base
@@ -144,17 +128,14 @@ outputs:
 
   - name: openmdao-with-all
     build:
-      noarch: python
+      noarch: generic
     requirements:
-      host:
-        - {{ min_python }}
       run:
-        - {{ min_python }}
-        - {{ pin_subpackage("openmdao", exact=True) }}
-        - {{ pin_subpackage("openmdao-with-doe", exact=True) }}
-        - {{ pin_subpackage("openmdao-with-jax", exact=True) }}
-        - {{ pin_subpackage("openmdao-with-notebooks", exact=True) }}
-        - {{ pin_subpackage("openmdao-with-visualization", exact=True) }}
+        - {{ pin_subpackage("openmdao", max_pin="x.x.x") }}
+        - {{ pin_subpackage("openmdao-with-doe", max_pin="x.x.x") }}
+        - {{ pin_subpackage("openmdao-with-jax", max_pin="x.x.x") }}
+        - {{ pin_subpackage("openmdao-with-notebooks", max_pin="x.x.x") }}
+        - {{ pin_subpackage("openmdao-with-visualization", max_pin="x.x.x") }}
     test:
       files:
         - run_testflo.py
