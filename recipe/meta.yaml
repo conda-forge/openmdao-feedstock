@@ -115,6 +115,7 @@ outputs:
         - bokeh >=2.4.0
         - colorama
         - matplotlib-base
+        - panel
     test:
       requires:
         - pip
