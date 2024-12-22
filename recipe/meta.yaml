@@ -13,7 +13,7 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   entry_points:
     - openmdao = openmdao.utils.om:openmdao_cmd
@@ -26,18 +26,19 @@ requirements:
   host:
     - hatchling
     - pip
-    - python >=3.9
+    - python {{ python_min }}
   run:
     - networkx >=2.0
     - numpy
     - packaging
-    - python >=3.9
+    - python >={{ python_min }}
     - requests
     - scipy
 
 test:
   requires:
     - pip
+    - python {{ python_min }}
   imports:
     - openmdao
   commands:
