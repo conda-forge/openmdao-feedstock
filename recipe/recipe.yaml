@@ -164,13 +164,14 @@ outputs:
             - run_testflo.py
         requirements:
           run:
-            - networkx <3.2
             - aiounittest
+            - networkx <3.2
             - num2words
             - numpydoc >=1.1
             - parameterized
             - pycodestyle >=2.4.0
             - pydocstyle >=2.0.0
+            - python ${{ python_min }}.*
             - testflo >=1.3.6
             - websockets >8
         script:
