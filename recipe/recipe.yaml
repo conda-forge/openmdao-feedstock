@@ -1,0 +1,196 @@
+schema_version: 1
+
+context:
+  version: 3.37.0
+
+recipe:
+  name: openmdao
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/o/openmdao/openmdao-${{ version }}.tar.gz
+  sha256: bedd76504f2a5fd74e5410fd06770fb389b2e3681cb785fc8bc12fe9ef912ec8
+
+build:
+  number: 0
+
+outputs:
+  - package:
+      name: openmdao
+    build:
+      noarch: python
+      script:
+        - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
+      python:
+        entry_points:
+          - openmdao = openmdao.utils.om:openmdao_cmd
+          - reset_notebook = openmdao.devtools.docutils:reset_notebook_cmd
+          - run_om_test = openmdao.devtools.run_test:run_test
+          - webview = openmdao.utils.webview:webview_argv
+          - wingproj = openmdao.devtools.wingproj:run_wing
+    requirements:
+      host:
+        - hatchling
+        - pip
+        - python ${{ python_min }}.*
+      run:
+        - networkx >=2.0
+        - numpy
+        - packaging
+        - python >=${{ python_min }}
+        - requests
+        - scipy
+    tests:
+      - python:
+          pip_check: true
+          python_version: ${{ python_min }}.*
+          imports: openmdao
+      - requirements:
+          run:
+            - python ${{ python_min }}.*
+        script:
+          - openmdao --help
+          - webview --help
+          - wingproj --help
+
+  - package:
+      name: openmdao-with-doe
+    build:
+      noarch: generic
+    requirements:
+      run:
+        - ${{ pin_subpackage("openmdao", upper_bound="x.x.x") }}
+        - pydoe3
+    tests:
+      - python:
+          pip_check: true
+          python_version: ${{ python_min }}.*
+          imports: openmdao
+      - requirements:
+          run:
+            - python ${{ python_min }}.*
+        script:
+          - openmdao --help
+          - webview --help
+          - wingproj --help
+
+  - package:
+      name: openmdao-with-jax
+    build:
+      noarch: generic
+    requirements:
+      run:
+        - ${{ pin_subpackage("openmdao", upper_bound="x.x.x") }}
+        - jax >=0.4.0
+        - jaxlib >=0.4.0
+    tests:
+      - python:
+          pip_check: true
+          python_version: ${{ python_min }}.*
+          imports: openmdao
+      - requirements:
+          run:
+            - python ${{ python_min }}.*
+        script:
+          - openmdao --help
+          - webview --help
+          - wingproj --help
+
+  - package:
+      name: openmdao-with-notebooks
+    build:
+      noarch: generic
+    requirements:
+      run:
+        - ${{ pin_subpackage("openmdao", upper_bound="x.x.x") }}
+        - idna >=3.7
+        - ipympl
+        - notebook
+    tests:
+      - python:
+          pip_check: true
+          python_version: ${{ python_min }}.*
+          imports: openmdao
+      - requirements:
+          run:
+            - python ${{ python_min }}.*
+        script:
+          - openmdao --help
+          - webview --help
+          - wingproj --help
+
+  - package:
+      name: openmdao-with-visualization
+    build:
+      noarch: generic
+    requirements:
+      run:
+        - ${{ pin_subpackage("openmdao", upper_bound="x.x.x") }}
+        - bokeh >=2.4.0
+        - colorama
+        - matplotlib-base
+        - panel
+    tests:
+      - python:
+          pip_check: true
+          python_version: ${{ python_min }}.*
+          imports: openmdao
+      - requirements:
+          run:
+            - python ${{ python_min }}.*
+        script:
+          - openmdao --help
+          - webview --help
+          - wingproj --help
+
+  - package:
+      name: openmdao-with-all
+    build:
+      noarch: generic
+    requirements:
+      run:
+        - ${{ pin_subpackage("openmdao", upper_bound="x.x.x") }}
+        - ${{ pin_subpackage("openmdao-with-doe", upper_bound="x.x.x") }}
+        - ${{ pin_subpackage("openmdao-with-jax", upper_bound="x.x.x") }}
+        - ${{ pin_subpackage("openmdao-with-notebooks", upper_bound="x.x.x") }}
+        - ${{ pin_subpackage("openmdao-with-visualization", upper_bound="x.x.x") }}
+    tests:
+      - python:
+          pip_check: true
+          python_version: ${{ python_min }}.*
+          imports: openmdao
+      - files:
+          recipe:
+            - run_testflo.py
+        requirements:
+          run:
+            - networkx <3.2
+            - aiounittest
+            - num2words
+            - numpydoc >=1.1
+            - parameterized
+            - pycodestyle >=2.4.0
+            - pydocstyle >=2.0.0
+            - testflo >=1.3.6
+            - websockets >8
+        script:
+          - python run_testflo.py
+
+about:
+  license: Apache-2.0
+  license_file: LICENSE.txt
+  summary: OpenMDAO framework infrastructure
+  description: |
+    OpenMDAO is an open-source high-performance computing platform
+    for systems analysis and multidisciplinary optimization, written in Python. It
+    enables you to decompose your models, making them easier to build and maintain,
+    while still solving them in a tightly coupled manner with efficient parallel
+    numerical methods.
+  homepage: https://openmdao.org
+  repository: https://github.com/OpenMDAO/OpenMDAO
+  documentation: https://openmdao.org/docs
+
+extra:
+  recipe-maintainers:
+    - swryan
+    - bollwyvl
