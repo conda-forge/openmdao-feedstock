@@ -3,7 +3,7 @@ About openmdao-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/openmdao-feedstock/blob/main/LICENSE.txt)
 
-Home: https://openmdao.org
+Home: https://openmdao.org/
 
 Package license: Apache-2.0
 
@@ -18,7 +18,6 @@ for systems analysis and multidisciplinary optimization, written in Python. It
 enables you to decompose your models, making them easier to build and maintain,
 while still solving them in a tightly coupled manner with efficient parallel
 numerical methods.
-
 
 Current build status
 ====================
