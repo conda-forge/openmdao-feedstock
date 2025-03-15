@@ -120,6 +120,27 @@ outputs:
           - wingproj --help
 
   - package:
+      name: openmdao-with-numba
+    build:
+      noarch: generic
+    requirements:
+      run:
+        - ${{ pin_subpackage("openmdao", upper_bound="x.x.x") }}
+        - numb
+    tests:
+      - python:
+          pip_check: true
+          python_version: ${{ python_min }}.*
+          imports: openmdao
+      - requirements:
+          run:
+            - python ${{ python_min }}.*
+        script:
+          - openmdao --help
+          - webview --help
+          - wingproj --help
+
+  - package:
       name: openmdao-with-visualization
     build:
       noarch: generic
@@ -153,6 +174,7 @@ outputs:
         - ${{ pin_subpackage("openmdao-with-doe", upper_bound="x.x.x") }}
         - ${{ pin_subpackage("openmdao-with-jax", upper_bound="x.x.x") }}
         - ${{ pin_subpackage("openmdao-with-notebooks", upper_bound="x.x.x") }}
+        - ${{ pin_subpackage("openmdao-with-numba", upper_bound="x.x.x") }}
         - ${{ pin_subpackage("openmdao-with-visualization", upper_bound="x.x.x") }}
     tests:
       - python:
