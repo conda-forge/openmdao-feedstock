@@ -126,7 +126,7 @@ outputs:
     requirements:
       run:
         - ${{ pin_subpackage("openmdao", upper_bound="x.x.x") }}
-        - numb
+        - numba
     tests:
       - python:
           pip_check: true
