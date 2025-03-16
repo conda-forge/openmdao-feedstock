@@ -42,6 +42,7 @@ Current release info
 | [![Conda Recipe](https://img.shields.io/badge/recipe-openmdao--with--doe-green.svg)](https://anaconda.org/conda-forge/openmdao-with-doe) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/openmdao-with-doe.svg)](https://anaconda.org/conda-forge/openmdao-with-doe) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/openmdao-with-doe.svg)](https://anaconda.org/conda-forge/openmdao-with-doe) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/openmdao-with-doe.svg)](https://anaconda.org/conda-forge/openmdao-with-doe) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-openmdao--with--jax-green.svg)](https://anaconda.org/conda-forge/openmdao-with-jax) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/openmdao-with-jax.svg)](https://anaconda.org/conda-forge/openmdao-with-jax) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/openmdao-with-jax.svg)](https://anaconda.org/conda-forge/openmdao-with-jax) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/openmdao-with-jax.svg)](https://anaconda.org/conda-forge/openmdao-with-jax) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-openmdao--with--notebooks-green.svg)](https://anaconda.org/conda-forge/openmdao-with-notebooks) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/openmdao-with-notebooks.svg)](https://anaconda.org/conda-forge/openmdao-with-notebooks) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/openmdao-with-notebooks.svg)](https://anaconda.org/conda-forge/openmdao-with-notebooks) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/openmdao-with-notebooks.svg)](https://anaconda.org/conda-forge/openmdao-with-notebooks) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-openmdao--with--numba-green.svg)](https://anaconda.org/conda-forge/openmdao-with-numba) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/openmdao-with-numba.svg)](https://anaconda.org/conda-forge/openmdao-with-numba) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/openmdao-with-numba.svg)](https://anaconda.org/conda-forge/openmdao-with-numba) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/openmdao-with-numba.svg)](https://anaconda.org/conda-forge/openmdao-with-numba) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-openmdao--with--visualization-green.svg)](https://anaconda.org/conda-forge/openmdao-with-visualization) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/openmdao-with-visualization.svg)](https://anaconda.org/conda-forge/openmdao-with-visualization) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/openmdao-with-visualization.svg)](https://anaconda.org/conda-forge/openmdao-with-visualization) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/openmdao-with-visualization.svg)](https://anaconda.org/conda-forge/openmdao-with-visualization) |
 
 Installing openmdao
@@ -54,16 +55,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `openmdao, openmdao-with-all, openmdao-with-doe, openmdao-with-jax, openmdao-with-notebooks, openmdao-with-visualization` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `openmdao, openmdao-with-all, openmdao-with-doe, openmdao-with-jax, openmdao-with-notebooks, openmdao-with-numba, openmdao-with-visualization` can be installed with `conda`:
 
 ```
-conda install openmdao openmdao-with-all openmdao-with-doe openmdao-with-jax openmdao-with-notebooks openmdao-with-visualization
+conda install openmdao openmdao-with-all openmdao-with-doe openmdao-with-jax openmdao-with-notebooks openmdao-with-numba openmdao-with-visualization
 ```
 
 or with `mamba`:
 
 ```
-mamba install openmdao openmdao-with-all openmdao-with-doe openmdao-with-jax openmdao-with-notebooks openmdao-with-visualization
+mamba install openmdao openmdao-with-all openmdao-with-doe openmdao-with-jax openmdao-with-notebooks openmdao-with-numba openmdao-with-visualization
 ```
 
 It is possible to list all of the versions of `openmdao` available on your platform with `conda`:
