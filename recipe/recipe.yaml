@@ -158,10 +158,11 @@ outputs:
     requirements:
       run:
         - ${{ pin_subpackage("openmdao", upper_bound="x.x.x") }}
-        - bokeh >=2.4.0
+        - bokeh >=3.4.0
         - colorama
         - matplotlib-base
         - panel
+        - rich
     tests:
       - python:
           imports: openmdao
