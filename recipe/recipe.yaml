@@ -1,7 +1,8 @@
 schema_version: 1
 
 context:
-  version: "3.38.0"
+  version: "3.39.0"
+  python_check_max: "3.13"
 
 recipe:
   name: openmdao
@@ -9,7 +10,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/o/openmdao/openmdao-${{ version }}.tar.gz
-  sha256: 9f95f20b9708907b8fc791177c3206d272b59524718f277315f1b376f8d12184
+  sha256: cfb2956e57cc879f7eae22fdef934c8572b3e4a1aa4145d114e3f9aef4d45a94
 
 build:
   number: 0
@@ -42,9 +43,11 @@ outputs:
         - scipy
     tests:
       - python:
-          pip_check: true
-          python_version: ${{ python_min }}.*
           imports: openmdao
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - ${{ python_check_max }}.*
       - requirements:
           run:
             - python ${{ python_min }}.*
@@ -63,9 +66,11 @@ outputs:
         - pydoe3
     tests:
       - python:
-          pip_check: true
-          python_version: ${{ python_min }}.*
           imports: openmdao
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - ${{ python_check_max }}.*
       - requirements:
           run:
             - python ${{ python_min }}.*
@@ -85,9 +90,11 @@ outputs:
         - jaxlib >=0.4.0
     tests:
       - python:
-          pip_check: true
-          python_version: ${{ python_min }}.*
           imports: openmdao
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - ${{ python_check_max }}.*
       - requirements:
           run:
             - python ${{ python_min }}.*
@@ -108,9 +115,11 @@ outputs:
         - notebook
     tests:
       - python:
-          pip_check: true
-          python_version: ${{ python_min }}.*
           imports: openmdao
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - ${{ python_check_max }}.*
       - requirements:
           run:
             - python ${{ python_min }}.*
@@ -129,9 +138,11 @@ outputs:
         - numba
     tests:
       - python:
-          pip_check: true
-          python_version: ${{ python_min }}.*
           imports: openmdao
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - ${{ python_check_max }}.*
       - requirements:
           run:
             - python ${{ python_min }}.*
@@ -147,15 +158,18 @@ outputs:
     requirements:
       run:
         - ${{ pin_subpackage("openmdao", upper_bound="x.x.x") }}
-        - bokeh >=2.4.0
+        - bokeh >=3.4.0
         - colorama
         - matplotlib-base
         - panel
+        - rich
     tests:
       - python:
-          pip_check: true
-          python_version: ${{ python_min }}.*
           imports: openmdao
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - ${{ python_check_max }}.*
       - requirements:
           run:
             - python ${{ python_min }}.*
@@ -178,9 +192,11 @@ outputs:
         - ${{ pin_subpackage("openmdao-with-visualization", upper_bound="x.x.x") }}
     tests:
       - python:
-          pip_check: true
-          python_version: ${{ python_min }}.*
           imports: openmdao
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - ${{ python_check_max }}.*
       - files:
           recipe:
             - run_testflo.py
