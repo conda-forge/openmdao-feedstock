@@ -231,5 +231,6 @@ about:
 
 extra:
   recipe-maintainers:
+    - robfalck
     - swryan
     - bollwyvl
