@@ -42,7 +42,8 @@ def main() -> int:
             "--numprocs",
             os.environ["CPU_COUNT"],
             "openmdao",
-            "--exclude=test_simple_paraboloid_desvar_indices_COBYQA",
+            "--exclude"
+            "*test_simple_paraboloid_desvar_indices_COBYQA*",
         ]
     )
 
