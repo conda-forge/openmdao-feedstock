@@ -160,5 +160,6 @@ Feedstock Maintainers
 =====================
 
 * [@bollwyvl](https://github.com/bollwyvl/)
+* [@robfalck](https://github.com/robfalck/)
 * [@swryan](https://github.com/swryan/)
 
