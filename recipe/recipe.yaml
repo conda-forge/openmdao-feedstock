@@ -185,12 +185,12 @@ outputs:
       noarch: generic
     requirements:
       run:
-        - ${{ pin_subpackage("openmdao", exact=True }}
-        - ${{ pin_subpackage("openmdao-with-doe", exact=True }}
-        - ${{ pin_subpackage("openmdao-with-jax", exact=True }}
-        - ${{ pin_subpackage("openmdao-with-notebooks", exact=True }}
-        - ${{ pin_subpackage("openmdao-with-numba", exact=True }}
-        - ${{ pin_subpackage("openmdao-with-visualization", exact=True }}
+        - ${{ pin_subpackage("openmdao", exact=True) }}
+        - ${{ pin_subpackage("openmdao-with-doe", exact=True) }}
+        - ${{ pin_subpackage("openmdao-with-jax", exact=True) }}
+        - ${{ pin_subpackage("openmdao-with-notebooks", exact=True) }}
+        - ${{ pin_subpackage("openmdao-with-numba", exact=True) }}
+        - ${{ pin_subpackage("openmdao-with-visualization", exact=True) }}
     tests:
       - python:
           imports: openmdao
