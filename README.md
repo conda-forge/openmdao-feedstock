@@ -3,6 +3,10 @@ About openmdao-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/openmdao-feedstock/blob/main/LICENSE.txt)
 
+
+About openmdao
+--------------
+
 Home: https://openmdao.org/
 
 Package license: Apache-2.0
@@ -18,6 +22,84 @@ for systems analysis and multidisciplinary optimization, written in Python. It
 enables you to decompose your models, making them easier to build and maintain,
 while still solving them in a tightly coupled manner with efficient parallel
 numerical methods.
+
+About openmdao-with-all
+-----------------------
+
+Home: https://openmdao.org/
+
+Package license: Apache-2.0
+
+Summary: OpenMDAO framework infrastructure (with all extras)
+
+Development: https://github.com/OpenMDAO/OpenMDAO
+
+Documentation: https://openmdao.org/docs
+
+About openmdao-with-doe
+-----------------------
+
+Home: https://openmdao.org/
+
+Package license: Apache-2.0
+
+Summary: OpenMDAO framework infrastructure (with [doe])
+
+Development: https://github.com/OpenMDAO/OpenMDAO
+
+Documentation: https://openmdao.org/docs
+
+About openmdao-with-jax
+-----------------------
+
+Home: https://openmdao.org/
+
+Package license: Apache-2.0
+
+Summary: OpenMDAO framework infrastructure (with [jax])
+
+Development: https://github.com/OpenMDAO/OpenMDAO
+
+Documentation: https://openmdao.org/docs
+
+About openmdao-with-notebooks
+-----------------------------
+
+Home: https://openmdao.org/
+
+Package license: Apache-2.0
+
+Summary: OpenMDAO framework infrastructure (with [notebooks])
+
+Development: https://github.com/OpenMDAO/OpenMDAO
+
+Documentation: https://openmdao.org/docs
+
+About openmdao-with-numba
+-------------------------
+
+Home: https://openmdao.org/
+
+Package license: Apache-2.0
+
+Summary: OpenMDAO framework infrastructure (with [numba])
+
+Development: https://github.com/OpenMDAO/OpenMDAO
+
+Documentation: https://openmdao.org/docs
+
+About openmdao-with-visualization
+---------------------------------
+
+Home: https://openmdao.org/
+
+Package license: Apache-2.0
+
+Summary: OpenMDAO framework infrastructure (with [visualization])
+
+Development: https://github.com/OpenMDAO/OpenMDAO
+
+Documentation: https://openmdao.org/docs
 
 Current build status
 ====================
@@ -56,31 +138,73 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `openmdao, openmdao-with-all, openmdao-with-doe, openmdao-with-jax, openmdao-with-notebooks, openmdao-with-numba, openmdao-with-visualization` can be installed with `conda`:
+How to use
+----------
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda install openmdao openmdao-with-all openmdao-with-doe openmdao-with-jax openmdao-with-notebooks openmdao-with-numba openmdao-with-visualization
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba install openmdao openmdao-with-all openmdao-with-doe openmdao-with-jax openmdao-with-notebooks openmdao-with-numba openmdao-with-visualization
 ```
 
-It is possible to list all of the versions of `openmdao` available on your platform with `conda`:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+# for adding to your local project
+pixi add openmdao openmdao-with-all openmdao-with-doe openmdao-with-jax openmdao-with-notebooks openmdao-with-numba openmdao-with-visualization
+# for installing globally
+pixi global install openmdao openmdao-with-all openmdao-with-doe openmdao-with-jax openmdao-with-notebooks openmdao-with-numba openmdao-with-visualization
+```
+
+</details>
+
+Search package versions
+-----------------------
+
+It is possible to list all of the versions of `openmdao` available on your platform:
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda search openmdao --channel conda-forge
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba search openmdao --channel conda-forge
 ```
 
-Alternatively, `mamba repoquery` may provide more information:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+pixi search openmdao --channel conda-forge
+```
+
+</details>
+
+<details>
+<summary>With mamba repoquery, which may provide more information</summary>
 
 ```
 # Search all versions available on your platform:
@@ -92,6 +216,8 @@ mamba repoquery whoneeds openmdao --channel conda-forge
 # List dependencies of `openmdao`:
 mamba repoquery depends openmdao --channel conda-forge
 ```
+
+</details>
 
 
 About conda-forge
