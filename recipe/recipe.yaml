@@ -2,8 +2,8 @@
 schema_version: 1
 
 context:
-  version: "3.45.1"
-  python_check_max: "3.14"
+  version: "3.45.2"
+  python_check_max: "3.15"
   summary: OpenMDAO framework infrastructure
 
 recipe:
@@ -12,7 +12,7 @@ recipe:
 
 source:
   url: https://files.pythonhosted.org/packages/source/o/openmdao/openmdao-${{ version }}.tar.gz
-  sha256: 314c5d796c5dbcc4334b70cd9d306cb8f8db78c84918b8406b88ede56d5cc909
+  sha256: aa5d138be9adca8b86960d565de7a155da152e4c113bd0a2ea80dae1b36b2a1a
 
 build:
   number: 0
@@ -23,7 +23,7 @@ outputs:
     build:
       noarch: python
       script:
-        - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
+        - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check --check-build-dependencies
       python:
         entry_points:
           - openmdao = openmdao.utils.om:openmdao_cmd
@@ -34,6 +34,7 @@ outputs:
     requirements:
       host:
         - hatchling
+        - numpy >=2.0
         - pip
         - python ${{ python_min }}.*
       run:
@@ -44,6 +45,11 @@ outputs:
         - requests
         - scipy >=1.13
     tests:
+      - package_contents:
+          strict: true
+          site_packages:
+            - openmdao/**
+            - openmdao-${{ version }}.dist-info/**
       - python:
           imports: openmdao
           pip_check: true
@@ -239,7 +245,7 @@ about:
   license: Apache-2.0
   license_file: LICENSE.txt
   summary: ${{ summary }}
-  homepage: https://openmdao.org
+  homepage: https://pypi.org/project/openmdao
   repository: https://github.com/OpenMDAO/OpenMDAO
   documentation: https://openmdao.org/docs
 
