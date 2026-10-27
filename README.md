@@ -7,7 +7,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/openmdao-feedst
 About openmdao
 --------------
 
-Home: https://openmdao.org/
+Home: https://pypi.org/project/openmdao
 
 Package license: Apache-2.0
 
@@ -26,7 +26,7 @@ numerical methods.
 About openmdao-with-all
 -----------------------
 
-Home: https://openmdao.org/
+Home: https://pypi.org/project/openmdao
 
 Package license: Apache-2.0
 
@@ -39,7 +39,7 @@ Documentation: https://openmdao.org/docs
 About openmdao-with-doe
 -----------------------
 
-Home: https://openmdao.org/
+Home: https://pypi.org/project/openmdao
 
 Package license: Apache-2.0
 
@@ -52,7 +52,7 @@ Documentation: https://openmdao.org/docs
 About openmdao-with-jax
 -----------------------
 
-Home: https://openmdao.org/
+Home: https://pypi.org/project/openmdao
 
 Package license: Apache-2.0
 
@@ -65,7 +65,7 @@ Documentation: https://openmdao.org/docs
 About openmdao-with-notebooks
 -----------------------------
 
-Home: https://openmdao.org/
+Home: https://pypi.org/project/openmdao
 
 Package license: Apache-2.0
 
@@ -78,7 +78,7 @@ Documentation: https://openmdao.org/docs
 About openmdao-with-numba
 -------------------------
 
-Home: https://openmdao.org/
+Home: https://pypi.org/project/openmdao
 
 Package license: Apache-2.0
 
@@ -91,7 +91,7 @@ Documentation: https://openmdao.org/docs
 About openmdao-with-visualization
 ---------------------------------
 
-Home: https://openmdao.org/
+Home: https://pypi.org/project/openmdao
 
 Package license: Apache-2.0
 
