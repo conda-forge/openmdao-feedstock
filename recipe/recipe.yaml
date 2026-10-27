@@ -3,7 +3,7 @@ schema_version: 1
 
 context:
   version: "3.45.1"
-  python_check_max: "3.14"
+  python_check_max: "3.15"
   summary: OpenMDAO framework infrastructure
 
 recipe:
@@ -23,7 +23,7 @@ outputs:
     build:
       noarch: python
       script:
-        - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
+        - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check --check-build-dependencies
       python:
         entry_points:
           - openmdao = openmdao.utils.om:openmdao_cmd
@@ -44,6 +44,11 @@ outputs:
         - requests
         - scipy >=1.13
     tests:
+      - package_contents:
+          strict: true
+          site_packages:
+            - openmdao/**
+            - openmdao-${{ version }}.dist-info/**
       - python:
           imports: openmdao
           pip_check: true
@@ -239,7 +244,7 @@ about:
   license: Apache-2.0
   license_file: LICENSE.txt
   summary: ${{ summary }}
-  homepage: https://openmdao.org
+  homepage: https://pypi.org/project/openmdao
   repository: https://github.com/OpenMDAO/OpenMDAO
   documentation: https://openmdao.org/docs
 
