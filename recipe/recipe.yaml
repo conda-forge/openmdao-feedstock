@@ -34,6 +34,7 @@ outputs:
     requirements:
       host:
         - hatchling
+        - numpy >=2.0
         - pip
         - python ${{ python_min }}.*
       run:
